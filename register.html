@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/registro.css">
+    <title>Register</title>
+</head>
+<body>
+    
+
+    <section class="logo">
+        <img src="/img/logo.png" alt="">    
+    </section>
+
+    <section class="title">
+        <h1>REGISTRO DE INFORMACIÓN DEL ALUMNO</h1>
+    </section>
+
+    <section class="alumno">
+        <h2>Información personal del alumno</h2>
+        <div>
+            <form action="">
+                <div class="info">
+                    <label for="dni">DNI</label>
+                    <input type="number" id="dni">
+                </div>
+                <div class="info">
+                    <label for="name"> Nombre</label>
+                    <input type="text" id="name">
+                    <label for="birth">Fecha de nacimiento</label>
+                    <input type="date" id="birth">
+                </div>
+                <div class="info">
+                    <label for="surname">Apellido paterno</label>
+                    <input type="text" id="surname">
+                    <label for="secondsurname">Apellido materno</label>
+                    <input type="text" id="secondsurname">
+                    <label for="phone">Teléfono de casa</label>
+                    <input type="number" id="phone">
+                </div>
+                <div class="info">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email">
+                    <label for="cel">Celular</label>
+                    <input type="number" id="cel">
+                </div>
+                <div class="info">
+                    <label for="address">Dirección</label>
+                    <input type="text" id="address" placeholder="Calle/Avenida/Jirón">
+                    <input type="text" id="address" placeholder="Edif./Etapa/Mzna">
+                    <input type="number" id="address" placeholder="Número">
+                </div>
+                <div>
+                    <label for="center">Centro laboral / Estudios</label>
+                    <input type="text" id="center">
+                </div>
+                <div class="info">
+                    <label for="study">¿Ha estudiado Inglés en alguna otra institución?</label>
+                    <input type="radio" name="study"> Si
+                    <input type="radio" name="study"> No
+                    <label for="where">¿Cúal?</label>
+                    <input type="text" id="where">
+                </div>
+                <div class="info">
+                    <label for="certification">¿Ha tomado alguna certificación internacional?</label>
+                    <input type="checkbox"> FCE
+                    <input type="checkbox"> CAE
+                    <input type="checkbox"> CPE
+                    <input type="checkbox"> KET
+                    <input type="checkbox"> PET
+                    <input type="checkbox"> Otro
+                    <label for="other">¿Cúal?</label>
+                    <input type="text" id="other">
+                </div>
+                <div>
+                    <label for="coments">Comentarios adicionales</label>
+                    <textarea name="" id="coments" cols="130" rows="2"></textarea>
+                </div>
+                <div>
+                    <canvas id="canvas"></canvas>
+                    <button id="btnLimpiar">Limpiar</button>
+                    <h4>Firma del alumno</h4>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section class="apoderado">
+        <form action="">
+            <h2>Información del(los) padre(s) y/o Apoderado(s) /  * sólo si es menor de edad</h2>
+            <div class="info">
+                <label for="apoderado"> Nombre(s) del Padre / Apoderado:</label>
+                <input type="text" id="apoderado">
+            </div>
+            <div class="info">
+                <label for="tel"> Teléfono (s) de Contacto:</label>
+                <input type="number" id="tel">
+            </div>
+            <div class="info">
+                <canvas id="canva"></canvas>
+                <button id="btnLimpia">Limpiar</button>
+                <h4>Firma del padre o apoderado</h4>
+            </div>
+        </form>
+    </section>
+
+    <script src="/register.js"></script>
+</body>
+</html>
