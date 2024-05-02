@@ -88,6 +88,7 @@ secondSurName.addEventListener("blur", function (e){
     }
 })
 
+
 birth.addEventListener("blur", function (e){
     let field = e.target;
     let fieldValue = e.target.value;
