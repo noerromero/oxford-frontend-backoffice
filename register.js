@@ -21,7 +21,7 @@ dni.addEventListener("blur", function (e){
     } else{
         field.classList.remove("invalid")
         field.nextElementSibling.classList.add("error");
-        field.nextElementSibling.innerText = "*";
+        field.nextElementSibling.innerText = "";
     }
 })
 
