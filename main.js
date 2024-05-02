@@ -1,13 +1,45 @@
-const username = document.getElementById('username')
-const password = document.getElementById('password')
-const button = document.getElementById('button')
+const userName = document.getElementById("username");
+const password = document.getElementById("password");
+const button = document.getElementById("button")
 
-button.addEventListener('click', (e) => {
-    e.preventDefault()
-    const data = {
-        username: username.value,
-        password: password.value
+userName.addEventListener("blur", function (e) {
+    let field = e.target;
+    let fieldValue = e.target.value;
+    if (fieldValue == 0){
+        field.classList.add("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "Username is required";
+    } else {
+        field.classList.remove("invalid")
+        field.nextElementSibling.classList.remove("error");
+        field.nextElementSibling.innerText = "";
     }
-
-    console.log(data)
 })
+
+
+
+
+password.addEventListener("blur", function (e) {
+    let field = e.target;
+    let fieldValue = e.target.value;
+    if (fieldValue == 0){
+        field.classList.add("invalid");
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "Password is required";
+    } else{
+        field.classList.remove("invalid");
+        field.nextElementSibling.classList.remove("error");
+        field.nextElementSibling.innerText = "";
+    }
+})
+
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    let usernameValue = userName.value.trim();
+    let passwordValue = password.value.trim();
+
+    if (usernameValue === '' || passwordValue === '') {
+        alert('Please fill in all fields.');
+    }
+});

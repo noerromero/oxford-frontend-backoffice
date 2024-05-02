@@ -1,195 +1,151 @@
+const dni = document.getElementById("dni")
+const Name = document.getElementById("name")
+const surName = document.getElementById("surname")
+const secondSurName = document.getElementById("secondsurname")
+const birth = document.getElementById("birth")
+const date = document.getElementById("date")
+const email = document.getElementById("email")
+const cel = document.getElementById("cel")
 
-document.addEventListener('DOMContentLoaded', function () {
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    let isDrawing = false;
 
-    canvas.addEventListener('mousedown', startDrawing);
-    canvas.addEventListener('mousemove', draw);
-    canvas.addEventListener('mouseup', stopDrawing);
-    canvas.addEventListener('mouseout', stopDrawing);
 
-    document.getElementById('btnLimpiar').addEventListener('click', limpiarFirma);
 
-    function startDrawing(e) {
-        isDrawing = true;
-        draw(e);
+
+dni.addEventListener("blur", function (e){
+    let field = e.target;
+    let fieldValue = e.target.value;
+    if(fieldValue == 0){
+        field.classList.add("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "*DNI es requerido";
+    } else{
+        field.classList.remove("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "*";
     }
+})
 
-    function draw(e) {
-        if (!isDrawing) return;
-
-        ctx.lineWidth = 2;
-        ctx.lineCap = 'round';
-        ctx.strokeStyle = '#000';
-
-        const rect = canvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        ctx.lineTo(x, y);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-    }
-
-    function stopDrawing() {
-        isDrawing = false;
-        ctx.beginPath();
-    }
-
-    function limpiarFirma() {
-        const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    let isDrawing = false;
-
-    canvas.addEventListener('pointerdown', startDrawing);
-    canvas.addEventListener('pointermove', draw);
-    canvas.addEventListener('pointerup', stopDrawing);
-    canvas.addEventListener('pointerout', stopDrawing);
-
-    document.getElementById('btnLimpiar').addEventListener('click', limpiarFirma);
-
-    function startDrawing(e) {
-        isDrawing = true;
-        draw(e);
-    }
-
-    function draw(e) {
-        if (!isDrawing) return;
-
-        ctx.lineWidth = 2;
-        ctx.lineCap = 'round';
-        ctx.strokeStyle = '#000';
-
-        const x = e.clientX || e.touches[0].clientX;
-        const y = e.clientY || e.touches[0].clientY;
-        const rect = canvas.getBoundingClientRect();
-
-        const offsetX = x - rect.left;
-        const offsetY = y - rect.top;
-
-        ctx.lineTo(offsetX, offsetY);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(offsetX, offsetY);
-    }
-
-    function stopDrawing() {
-        isDrawing = false;
-        ctx.beginPath();
-    }
-
-    function limpiarFirma() {
-        const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+dni.addEventListener('input', function() {
+    if (this.value.length > 8) {
+        this.value = this.value.slice(0, 8);
     }
 });
 
 
-
-/* 2do canvas */
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    const canvas = document.getElementById('canva');
-    const ctx = canva.getContext('2d');
-    let isDrawing = false;
-
-    canvas.addEventListener('mousedown', startDrawing);
-    canvas.addEventListener('mousemove', draw);
-    canvas.addEventListener('mouseup', stopDrawing);
-    canvas.addEventListener('mouseout', stopDrawing);
-
-    document.getElementById('btnLimpia').addEventListener('click', limpiarFirma);
-
-    function startDrawing(e) {
-        isDrawing = true;
-        draw(e);
+Name.addEventListener("blur", function (e){
+    let field = e.target;
+    let fieldValue = e.target.value;
+    if(fieldValue == 0){
+        field.classList.add("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "*Nombre completo es requerido";
+    } else{
+        field.classList.remove("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "";
     }
+})
 
-    function draw(e) {
-        if (!isDrawing) return;
-
-        ctx.lineWidth = 2;
-        ctx.lineCap = 'round';
-        ctx.strokeStyle = '#000';
-
-        const rect = canvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        ctx.lineTo(x, y);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(x, y);
+surName.addEventListener("blur", function (e){
+    let field = e.target;
+    let fieldValue = e.target.value;
+    if(fieldValue == 0){
+        field.classList.add("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "*Apellido paterno es requerido";
+    } else{
+        field.classList.remove("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "";
     }
+})
 
-    function stopDrawing() {
-        isDrawing = false;
-        ctx.beginPath();
+secondSurName.addEventListener("blur", function (e){
+    let field = e.target;
+    let fieldValue = e.target.value;
+    if(fieldValue == 0){
+        field.classList.add("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "*Apellido materno es requerido";
+    } else{
+        field.classList.remove("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "";
     }
+})
 
-    function limpiarFirma() {
-        const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+secondSurName.addEventListener("blur", function (e){
+    let field = e.target;
+    let fieldValue = e.target.value;
+    if(fieldValue == 0){
+        field.classList.add("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "*Apellido materno es requerido";
+    } else{
+        field.classList.remove("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "";
     }
-});
+})
 
-document.addEventListener('DOMContentLoaded', function () {
-    const canvas = document.getElementById('canva');
-    const ctx = canvas.getContext('2d');
-    let isDrawing = false;
-
-    canvas.addEventListener('pointerdown', startDrawing);
-    canvas.addEventListener('pointermove', draw);
-    canvas.addEventListener('pointerup', stopDrawing);
-    canvas.addEventListener('pointerout', stopDrawing);
-
-    document.getElementById('btnLimpia').addEventListener('click', limpiarFirma);
-
-    function startDrawing(e) {
-        isDrawing = true;
-        draw(e);
+birth.addEventListener("blur", function (e){
+    let field = e.target;
+    let fieldValue = e.target.value;
+    if(fieldValue == 0){
+        field.classList.add("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "*Fecha de nacimiento es requerido";
+    } else{
+        field.classList.remove("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "";
     }
+})
 
-    function draw(e) {
-        if (!isDrawing) return;
-
-        ctx.lineWidth = 2;
-        ctx.lineCap = 'round';
-        ctx.strokeStyle = '#000';
-
-        const x = e.clientX || e.touches[0].clientX;
-        const y = e.clientY || e.touches[0].clientY;
-        const rect = canvas.getBoundingClientRect();
-
-        const offsetX = x - rect.left;
-        const offsetY = y - rect.top;
-
-        ctx.lineTo(offsetX, offsetY);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(offsetX, offsetY);
+date.addEventListener("blur", function (e){
+    let field = e.target;
+    let fieldValue = e.target.value;
+    if(fieldValue == 0){
+        field.classList.add("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "*Fecha de registro es requerido";
+    } else{
+        field.classList.remove("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "";
     }
+})
 
-    function stopDrawing() {
-        isDrawing = false;
-        ctx.beginPath();
+email.addEventListener("blur", function (e){
+    let field = e.target;
+    let fieldValue = e.target.value;
+    if(fieldValue == 0){
+        field.classList.add("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "*Email es requerido";
+    } else{
+        field.classList.remove("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "";
     }
+})
 
-    function limpiarFirma() {
-        const canvas = document.getElementById('canva');
-        const ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+cel.addEventListener("blur", function (e){
+    let field = e.target;
+    let fieldValue = e.target.value;
+    if(fieldValue == 0){
+        field.classList.add("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "*Celular es requerido";
+    } else{
+        field.classList.remove("invalid")
+        field.nextElementSibling.classList.add("error");
+        field.nextElementSibling.innerText = "";
+    }
+})
+
+cel.addEventListener('input', function() {
+    if (this.value.length > 9) {
+        this.value = this.value.slice(0, 9);
     }
 });
