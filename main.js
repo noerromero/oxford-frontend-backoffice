@@ -40,6 +40,21 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     let passwordValue = password.value.trim();
 
     if (usernameValue === '' || passwordValue === '') {
-        alert('Please fill in all fields.');
+        swal("Completar todos los campos","","warning");
     }
 });
+
+
+
+
+function login(){
+    const mail = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    if(mail == "dante@oxford.com" && pass=="12345") {
+        window.location.href="http://127.0.0.1:5500/oxford-frontend-backoffice/Html/welcome.html"
+        
+    } else {
+        swal("Usuario o contraseña incorrectos", "", "error");
+    }
+}
