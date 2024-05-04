@@ -18,14 +18,24 @@ body {
     margin-bottom: 20px;
 }
 
-.informacion {
+h1{
+    font-size: 35px;
+    background: linear-gradient(90deg, #cb232c, #1d46ce);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;;
+}
+
+.information {
     margin: 0 auto;
     max-width: 600px;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 10px;
     margin-bottom: 30px;
-    border: 2px solid red;
+}
+
+.information a{
+    color: black;
 }
 
 .info {
@@ -114,7 +124,15 @@ span {
     box-shadow: 0px 0px 10px red;
 }
 
-
+.question{
+    border: 5px solid rgb(119, 119, 119);
+    margin: 10px auto;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
 
 
 /* Estilos para dispositivos móviles */
