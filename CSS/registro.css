@@ -20,7 +20,7 @@ body {
 
 h1{
     font-size: 35px;
-    background: linear-gradient(90deg, #cb232c, #1d46ce);
+    background: linear-gradient(90deg, #ff000d, #003cff);
     background-clip: text;
     -webkit-text-fill-color: transparent;;
 }
