@@ -52,7 +52,7 @@ function login(){
     const pass = document.getElementById("password").value;
 
     if(mail == "dante@oxford.com" && pass=="12345") {
-        window.location.href="http://127.0.0.1:5500/oxford-frontend-backoffice/Html/welcome.html"
+        window.location.href="http://127.0.0.1:5500/Html/welcome.html"
         
     } else {
         swal("Usuario o contraseña incorrectos", "", "error");
