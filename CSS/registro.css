@@ -35,7 +35,9 @@ h1{
 }
 
 .information a{
-    color: black;
+    color: white;
+    background-color: red;
+    border-radius: 15px;
 }
 
 .info {
