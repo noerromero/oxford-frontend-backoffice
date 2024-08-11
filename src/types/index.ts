@@ -54,7 +54,7 @@ export const AddressSchema = object({
 export const StudentSchema = object({
     studentId: string(),
     studentDni: string(),
-    studentName: string(),
+    name: string(),
     studentSurname: string(),
     studentSecondSurname: string(),
     studentEmail: string(),

@@ -1,6 +1,6 @@
 import { safeParse } from 'valibot';
 import axios from 'axios';
-import { DraftStudentSchema } from "../../types";
+import { DraftStudentSchema, StudentsSchema } from "../../types";
 
 type StudentData = {
     [k: string]: FormDataEntryValue;
@@ -68,6 +68,24 @@ export async function addStudent(data : StudentData) {
         } else {
             throw new Error('Invalid data')
         }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export async function getStudents() {
+    try {
+        const url = `${import.meta.env.VITE_API_URL}/api/students`
+        const { data } = await axios(url)
+        console.log(data);
+        return data.data;
+        // const result = safeParse(StudentsSchema, data.data)
+        // console.log(result);
+        // if(result.success) {
+        //     return result.output
+        // } else {
+        //     throw new Error('Hubo un error...')
+        // }
     } catch (error) {
         console.log(error)
     }
