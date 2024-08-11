@@ -21,7 +21,7 @@ export default function StudentForm({ student }: StudentFormProps) {
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             placeholder="44987676"
             name="studentDni"
-            defaultValue={student?.studentDni}
+            defaultValue={student?.dni}
           />
         </div>
 
@@ -38,7 +38,7 @@ export default function StudentForm({ student }: StudentFormProps) {
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             placeholder="07/12/1990"
             name="studentBirthdate"
-            defaultValue={student?.studentBirthdate}
+            defaultValue={student?.birthdate}
           />
         </div>
       </div>
@@ -56,7 +56,7 @@ export default function StudentForm({ student }: StudentFormProps) {
           className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           placeholder="Juan Esteban"
           name="studentName"
-          defaultValue={student?.studentName}
+          defaultValue={student?.name}
         />
       </div>
 
@@ -74,7 +74,7 @@ export default function StudentForm({ student }: StudentFormProps) {
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             placeholder="Gomez"
             name="studentSurname"
-            defaultValue={student?.studentSurname}
+            defaultValue={student?.surname}
           />
         </div>
 
@@ -91,7 +91,7 @@ export default function StudentForm({ student }: StudentFormProps) {
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             placeholder="Perez"
             name="studentSecondSurname"
-            defaultValue={student?.studentSecondSurname}
+            defaultValue={student?.secondSurname}
           />
         </div>
       </div>
@@ -109,7 +109,7 @@ export default function StudentForm({ student }: StudentFormProps) {
           className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           placeholder="ej. juanperez43@gmail.com"
           name="studentEmail"
-          defaultValue={student?.studentEmail}
+          defaultValue={student?.email}
         />
       </div>
 
@@ -127,7 +127,7 @@ export default function StudentForm({ student }: StudentFormProps) {
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             placeholder="01-2056345"
             name="studentPhone"
-            defaultValue={student?.studentPhone}
+            defaultValue={student?.phone}
           />
         </div>
 
@@ -144,7 +144,7 @@ export default function StudentForm({ student }: StudentFormProps) {
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             placeholder="987571654"
             name="studentCellphone"
-            defaultValue={student?.studentCellphone}
+            defaultValue={student?.cellphone}
           />
         </div>
       </div>
@@ -162,7 +162,7 @@ export default function StudentForm({ student }: StudentFormProps) {
           className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           placeholder="Universidad Nacional de Ingenieria"
           name="studentAcademicInstitution"
-          defaultValue={student?.studentAcademicInstitution}
+          defaultValue={student?.academicInstitution}
         />
       </div>
 
@@ -179,7 +179,7 @@ export default function StudentForm({ student }: StudentFormProps) {
           className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           placeholder="Banco de la Nacion"
           name="studentWorkplace"
-          defaultValue={student?.studentWorkplace}
+          defaultValue={student?.workplace}
         />
       </div>
 
@@ -196,7 +196,7 @@ export default function StudentForm({ student }: StudentFormProps) {
           className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           placeholder="TOEFL"
           name="studentEnglishCertification"
-          defaultValue={student?.studentEnglishCertification}
+          defaultValue={student?.englishCertification}
         />
       </div>
 
@@ -401,7 +401,7 @@ export default function StudentForm({ student }: StudentFormProps) {
           className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           placeholder="Alumno destacado en ingles avanzado"
           name="studentComment"
-          defaultValue={student?.studentComment}
+          defaultValue={student?.comment}
         />
       </div>
     </>

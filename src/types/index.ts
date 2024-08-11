@@ -6,16 +6,7 @@ export const LegalRepresentativeSchema = object({
     secondSurname: string(),
     phone: string(),
     cellphone: string(),
-})
-
-/*
-export const DraftAddressSchema = object({
-    street: string(),
-    neighborhood: string(),
-    city: string(),
-    state: string(),
-    reference: string(),
-})*/
+});
 
 export const DraftStudentSchema = object({
     studentDni: string(),
@@ -40,7 +31,7 @@ export const DraftStudentSchema = object({
     legalRepresentativeSecondSurname: string(),
     legalRepresentativePhone: string(),
     legalRepresentativeCellphone: string(),
-})
+});
 
 export const AddressSchema = object({
     id: string(),
@@ -49,25 +40,25 @@ export const AddressSchema = object({
     city: string(),
     state: string(),
     reference: string(),
-})
+});
 
 export const StudentSchema = object({
-    studentId: string(),
-    studentDni: string(),
+    id: string(),
+    dni: string(),
     name: string(),
-    studentSurname: string(),
-    studentSecondSurname: string(),
-    studentEmail: string(),
-    studentPhone: string(),
-    studentBirthdate: string(),
-    studentCellphone: string(),
-    studentAcademicInstitution: string(),
-    studentWorkplace: string(),
-    studentEnglishCertification: string(),
-    studentComment: string(),
+    surname: string(),
+    secondSurname: string(),
+    email: string(),
+    phone: string(),
+    birthdate: string(),
+    cellphone: string(),
+    academicInstitution: string(),
+    workplace: string(),
+    englishCertification: string(),
+    comment: string(),
     address: AddressSchema,
     legalRepresentative: LegalRepresentativeSchema,
-})
+});
 
 export const StudentsSchema = array(StudentSchema)
 export type Student = InferOutput<typeof StudentSchema>

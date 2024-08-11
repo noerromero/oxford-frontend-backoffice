@@ -27,7 +27,7 @@ export default function Students() {
         <table className="w-full mt-5 table-auto">
           <thead className="bg-slate-800 text-white">
             <tr>
-              <th className="p-2">Estudiante</th>
+              <th className="p-2">Nombre</th>
               <th className="p-2">DNI</th>
               <th className="p-2">Email</th>
               <th className="p-2">Acciones</th>
@@ -35,7 +35,7 @@ export default function Students() {
           </thead>
           <tbody>
             {data.map((student) => (
-              <StudentDetails key={student.studentId} student={student} />
+              <StudentDetails key={student.id} student={student} />
             ))}
           </tbody>
         </table>
