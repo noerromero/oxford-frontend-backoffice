@@ -11,16 +11,16 @@ export default function StudentForm({ student }: StudentFormProps) {
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label
             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            htmlFor="studentDni"
+            htmlFor="dni"
           >
             DNI:
           </label>
           <input
-            id="studentDni"
+            id="dni"
             type="text"
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             placeholder="44987676"
-            name="studentDni"
+            name="dni"
             defaultValue={student?.dni}
           />
         </div>
@@ -28,16 +28,16 @@ export default function StudentForm({ student }: StudentFormProps) {
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label
             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            htmlFor="studentBirthdate"
+            htmlFor="birthdate"
           >
             Fecha de nacimiento:
           </label>
           <input
-            id="studentBirthdate"
+            id="birthdate"
             type="text"
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             placeholder="07/12/1990"
-            name="studentBirthdate"
+            name="birthdate"
             defaultValue={student?.birthdate}
           />
         </div>
@@ -46,16 +46,16 @@ export default function StudentForm({ student }: StudentFormProps) {
       <div className="mb-4">
         <label
           className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-          htmlFor="studentName"
+          htmlFor="name"
         >
           Nombre:
         </label>
         <input
-          id="studentName"
+          id="name"
           type="text"
           className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           placeholder="Juan Esteban"
-          name="studentName"
+          name="name"
           defaultValue={student?.name}
         />
       </div>
@@ -64,16 +64,16 @@ export default function StudentForm({ student }: StudentFormProps) {
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label
             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            htmlFor="studentSurname"
+            htmlFor="surname"
           >
             Apellido paterno:
           </label>
           <input
-            id="studentSurname"
+            id="surname"
             type="text"
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             placeholder="Gomez"
-            name="studentSurname"
+            name="surname"
             defaultValue={student?.surname}
           />
         </div>
@@ -81,16 +81,16 @@ export default function StudentForm({ student }: StudentFormProps) {
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label
             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            htmlFor="studentSecondSurname"
+            htmlFor="secondSurname"
           >
             Apellido materno:
           </label>
           <input
-            id="studentSecondSurname"
+            id="secondSurname"
             type="text"
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             placeholder="Perez"
-            name="studentSecondSurname"
+            name="secondSurname"
             defaultValue={student?.secondSurname}
           />
         </div>
@@ -99,16 +99,16 @@ export default function StudentForm({ student }: StudentFormProps) {
       <div className="mb-4">
         <label
           className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-          htmlFor="studentEmail"
+          htmlFor="email"
         >
           Email:
         </label>
         <input
-          id="studentEmail"
+          id="email"
           type="text"
           className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           placeholder="ej. juanperez43@gmail.com"
-          name="studentEmail"
+          name="email"
           defaultValue={student?.email}
         />
       </div>
@@ -117,16 +117,16 @@ export default function StudentForm({ student }: StudentFormProps) {
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label
             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            htmlFor="studentPhone"
+            htmlFor="phone"
           >
             Telefono fijo:
           </label>
           <input
-            id="studentPhone"
+            id="phone"
             type="text"
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             placeholder="01-2056345"
-            name="studentPhone"
+            name="phone"
             defaultValue={student?.phone}
           />
         </div>
@@ -134,16 +134,16 @@ export default function StudentForm({ student }: StudentFormProps) {
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
           <label
             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            htmlFor="studentCellphone"
+            htmlFor="cellphone"
           >
             Celular:
           </label>
           <input
-            id="studentCellphone"
+            id="cellphone"
             type="text"
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             placeholder="987571654"
-            name="studentCellphone"
+            name="cellphone"
             defaultValue={student?.cellphone}
           />
         </div>
@@ -152,16 +152,16 @@ export default function StudentForm({ student }: StudentFormProps) {
       <div className="mb-4">
         <label
           className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-          htmlFor="studentAcademicInstitution"
+          htmlFor="academicInstitution"
         >
           Institucion educativa:
         </label>
         <input
-          id="studentAcademicInstitution"
+          id="academicInstitution"
           type="text"
           className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           placeholder="Universidad Nacional de Ingenieria"
-          name="studentAcademicInstitution"
+          name="academicInstitution"
           defaultValue={student?.academicInstitution}
         />
       </div>
@@ -169,16 +169,16 @@ export default function StudentForm({ student }: StudentFormProps) {
       <div className="mb-4">
         <label
           className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-          htmlFor="studentWorkplace"
+          htmlFor="workplace"
         >
           Centro laboral:
         </label>
         <input
-          id="studentWorkplace"
+          id="workplace"
           type="text"
           className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           placeholder="Banco de la Nacion"
-          name="studentWorkplace"
+          name="workplace"
           defaultValue={student?.workplace}
         />
       </div>
@@ -186,16 +186,16 @@ export default function StudentForm({ student }: StudentFormProps) {
       <div className="mb-4">
         <label
           className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-          htmlFor="studentEnglishCertification"
+          htmlFor="englishCertification"
         >
           Certificacion de ingles:
         </label>
         <input
-          id="studentEnglishCertification"
+          id="englishCertification"
           type="text"
           className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           placeholder="TOEFL"
-          name="studentEnglishCertification"
+          name="englishCertification"
           defaultValue={student?.englishCertification}
         />
       </div>
@@ -391,16 +391,16 @@ export default function StudentForm({ student }: StudentFormProps) {
       <div className="mb-4">
         <label
           className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-          htmlFor="studentComment"
+          htmlFor="comment"
         >
           Comentario:
         </label>
         <textarea
-          id="studentComment"
+          id="comment"
           rows={5}
           className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           placeholder="Alumno destacado en ingles avanzado"
-          name="studentComment"
+          name="comment"
           defaultValue={student?.comment}
         />
       </div>

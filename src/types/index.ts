@@ -9,7 +9,7 @@ export const LegalRepresentativeSchema = object({
 });
 
 export const DraftStudentSchema = object({
-    studentDni: string(),
+    dni: string(),
     studentName: string(),
     studentSurname: string(),
     studentSecondSurname: string(),

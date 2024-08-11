@@ -11,7 +11,6 @@ import StudentForm from "../../components/students/StudentForm";
 
 export async function action({ request }: ActionFunctionArgs) {
   const data = Object.fromEntries(await request.formData());
-  console.log(data);
   let error = "";
   if (Object.values(data).includes("")) {
     error = "Todos los campos son obligatorios";
