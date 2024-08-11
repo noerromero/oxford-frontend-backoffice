@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from './layouts/Layout';
-import Students from './views/students/Students';
+import Students, {loader as studentLoader} from './views/students/Students';
 import NewStudent, { action as newStudentAction }  from './views/students/newStudent';
 
 export const router = createBrowserRouter([
@@ -10,7 +10,8 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <Students />
+                element: <Students />,
+                loader: studentLoader
             },
             {
                 path: 'students/new',
