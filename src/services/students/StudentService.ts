@@ -79,15 +79,12 @@ export async function getStudents() {
     try {
         const url = `${import.meta.env.VITE_API_URL}/api/students`
         const { data } = await axios(url)
-        console.log(data);
-        return data.data;
-        // const result = safeParse(StudentsSchema, data.data)
-        // console.log(result);
-        // if(result.success) {
-        //     return result.output
-        // } else {
-        //     throw new Error('Hubo un error...')
-        // }
+        const result = safeParse(StudentsSchema, data.data)
+        if(result.success) {
+            return result.output
+        } else {
+            throw new Error('Hubo un error...')
+        }
     } catch (error) {
         console.log(error)
     }

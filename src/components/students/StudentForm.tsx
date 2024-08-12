@@ -186,17 +186,17 @@ export default function StudentForm({ student }: StudentFormProps) {
       <div className="mb-4">
         <label
           className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-          htmlFor="englishCertification"
+          htmlFor="englishCertificate"
         >
           Certificacion de ingles:
         </label>
         <input
-          id="englishCertification"
+          id="englishCertificate"
           type="text"
           className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           placeholder="TOEFL"
-          name="englishCertification"
-          defaultValue={student?.englishCertification}
+          name="englishCertificate"
+          defaultValue={student?.englishCertificate}
         />
       </div>
 

@@ -55,7 +55,7 @@ export const StudentSchema = object({
     cellphone: string(),
     academicInstitution: string(),
     workplace: string(),
-    englishCertification: string(),
+    englishCertificate: string(),
     comment: string(),
     address: AddressSchema,
     legalRepresentative: LegalRepresentativeSchema,
