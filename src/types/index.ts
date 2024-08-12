@@ -48,6 +48,7 @@ export const StudentSchema = object({
     name: string(),
     surname: string(),
     secondSurname: string(),
+    completeName: string(),
     email: string(),
     phone: string(),
     birthdate: string(),

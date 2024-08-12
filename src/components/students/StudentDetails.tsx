@@ -10,7 +10,7 @@ export default function StudentDetails({ student }: StudentDetailsProps) {
 
   return (
     <tr className="border-b ">
-      <td className="p-3 text-lg text-gray-800">{student.name}</td>
+      <td className="p-3 text-lg text-gray-800">{student.completeName}</td>
       <td className="p-3 text-lg text-gray-800">{student.dni}</td>
       <td className="p-3 text-lg text-gray-800">{student.email}</td>
       <td className="p-3 text-lg text-gray-800 ">
