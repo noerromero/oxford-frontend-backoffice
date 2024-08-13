@@ -16,7 +16,7 @@ export default function StudentDetails({ student }: StudentDetailsProps) {
       <td className="p-3 text-lg text-gray-800 ">
         <div className="flex gap-2 items-center">
           <button
-            onClick={() => navigate(`/productos/${student.id}/editar`)}
+            onClick={() => navigate(`/students/${student.id}/edit`)}
             className="bg-indigo-600 text-white rounded-lg w-full p-2 uppercase font-bold text-xs text-center"
           >
             Editar

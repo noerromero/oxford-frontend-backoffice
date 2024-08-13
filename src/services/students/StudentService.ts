@@ -1,6 +1,6 @@
 import { safeParse } from 'valibot';
 import axios from 'axios';
-import { DraftStudentSchema, StudentsSchema } from "../../types";
+import { DraftStudentSchema, Student, StudentsSchema, StudentSchema } from "../../types";
 
 type StudentData = {
     [k: string]: FormDataEntryValue;
@@ -84,6 +84,63 @@ export async function getStudents() {
             return result.output
         } else {
             throw new Error('Hubo un error...')
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export async function getStudentById(id : Student['id']) {
+    try {
+        const url = `${import.meta.env.VITE_API_URL}/api/students/${id}`
+        const { data } = await axios(url)
+        const result = safeParse(StudentSchema, data.data)
+        if(result.success) {
+            return result.output
+        } else {
+            throw new Error('Hubo un error...')
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export async function updateStudent(data : StudentData, id: Student['id']) {
+    try {
+        const result = safeParse(StudentSchema, {
+            id: id,
+            dni: data.dni,
+                name: data.studentName,
+                surname: data.studentSurname,
+                secondSurname: data.studentSecondSurname,
+                email: data.studentEmail,
+                phone: data.studentPhone,
+                birthdate: data.studentBirthdate,
+                cellphone: data.studentCellphone,
+                academicInstitution: data.studentAcademicInstitution,
+                workplace: data.studentWorkplace,
+                englishCertification: data.studentEnglishCertification,
+                comment: data.studentComment,
+                address: {
+                    id: crypto.randomUUID().toString(),
+                    street: data.street,
+                    neighborhood: data.neighborhood,
+                    city: data.city,
+                    state: data.state,
+                    reference: data.reference,
+                },
+                legalRepresentative: {
+                    name: data.legalRepresentativeName,
+                    surname: data.legalRepresentativeSurname,
+                    secondSurname: data.legalRepresentativeSecondSurname,
+                    phone: data.legalRepresentativePhone,
+                    cellphone: data.legalRepresentativeCellphone,
+                }
+        })
+       
+        if(result.success) {
+            const url = `${import.meta.env.VITE_API_URL}/api/students/${id}`
+            await axios.put(url, result.output)
         }
     } catch (error) {
         console.log(error)

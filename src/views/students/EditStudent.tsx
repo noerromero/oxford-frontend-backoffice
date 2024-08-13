@@ -1,7 +1,34 @@
-import { useActionData, useLoaderData, Link, Form } from "react-router-dom"
+import { useActionData, useLoaderData, Link, Form, LoaderFunctionArgs, ActionFunctionArgs, redirect } from "react-router-dom"
 import { Student } from "../../types"
 import ErrorMessage from "../../components/shared/ErrorMessage"
 import StudentForm from "../../components/students/StudentForm"
+import { getStudentById, updateStudent } from "../../services/students/StudentService"
+
+export async function loader({params} : LoaderFunctionArgs) {
+    if(params.id !== undefined) {
+        const student = await getStudentById(params.id)
+        if(!student) {
+            return redirect('/')
+        }
+        return student
+    }
+}
+
+export async function action({request, params} : ActionFunctionArgs) {
+    const data = Object.fromEntries(await request.formData())
+    let error = ''
+    if(Object.values(data).includes('')) {
+        error = 'Todos los campos son obligatorios'
+    }
+    if(error.length) {
+        return error
+    }
+
+    if(params.id !== undefined) {
+        await updateStudent(data, params.id)
+        return redirect('/')
+    }
+}
 
 export default function EditStudent() {
     const student = useLoaderData() as Student
@@ -22,7 +49,7 @@ export default function EditStudent() {
             {error && <ErrorMessage>{error}</ErrorMessage>}
 
             <Form
-                className="mt-10"  
+                className="mx-auto max-w-lg"  
                 method='POST'
             >
             
