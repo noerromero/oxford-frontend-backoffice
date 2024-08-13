@@ -20,7 +20,7 @@ export async function addStudent(data : StudentData) {
             studentCellphone: data.cellphone,
             studentAcademicInstitution: data.academicInstitution,
             studentWorkplace: data.workplace,
-            studentEnglishCertification: data.englishCertification,
+            studentEnglishCertificate: data.englishCertificate,
             studentComment: data.comment,
             street: data.street,
             neighborhood: data.neighborhood,
@@ -48,7 +48,7 @@ export async function addStudent(data : StudentData) {
                 cellphone: result.output.studentCellphone,
                 academicInstitution: result.output.studentAcademicInstitution,
                 workplace: result.output.studentWorkplace,
-                englishCertification: result.output.studentEnglishCertification,
+                englishCertificate: result.output.studentEnglishCertificate,
                 comment: result.output.studentComment,
                 address: {
                     id: crypto.randomUUID().toString(),
@@ -66,6 +66,7 @@ export async function addStudent(data : StudentData) {
                     cellphone: result.output.legalRepresentativeCellphone,
                 }
             };
+            console.log(studentServiceData);
             await axios.post(url, studentServiceData);
         } else {
             throw new Error('Invalid data')
@@ -119,7 +120,7 @@ export async function updateStudent(data : StudentData, id: Student['id']) {
                 cellphone: data.studentCellphone,
                 academicInstitution: data.studentAcademicInstitution,
                 workplace: data.studentWorkplace,
-                englishCertification: data.studentEnglishCertification,
+                englishCertificate: data.studentEnglishCertificate,
                 comment: data.studentComment,
                 address: {
                     id: crypto.randomUUID().toString(),

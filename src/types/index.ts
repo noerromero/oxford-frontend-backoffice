@@ -19,7 +19,7 @@ export const DraftStudentSchema = object({
     studentCellphone: string(),
     studentAcademicInstitution: string(),
     studentWorkplace: string(),
-    studentEnglishCertification: string(),
+    studentEnglishCertificate: string(),
     studentComment: string(),
     street: string(),
     neighborhood: string(),
