@@ -404,6 +404,13 @@ export default function StudentForm({ student }: StudentFormProps) {
           defaultValue={student?.comment}
         />
       </div>
+
+      <input
+            id="addressId"
+            type="hidden"
+            name="addressId"
+            defaultValue={student?.address?.id}
+          />
     </>
   );
 }

@@ -34,6 +34,7 @@ export default function EditStudent() {
     const student = useLoaderData() as Student
     const error = useActionData() as string
 
+    console.log(student)
     return (
         <>
             <div className='flex justify-between'>

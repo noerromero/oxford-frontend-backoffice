@@ -8,7 +8,6 @@ type StudentData = {
 
 export async function addStudent(data : StudentData) {
     try {
-        console.log(data);
         const result = safeParse(DraftStudentSchema, {
             dni: data.dni,
             studentName: data.name,
@@ -33,7 +32,6 @@ export async function addStudent(data : StudentData) {
             legalRepresentativePhone: data.legalRepresentativePhone,
             legalRepresentativeCellphone: data.legalRepresentativeCellphone,
         });
-        console.log(result);
         if(result.success) {
             const url = `${import.meta.env.VITE_API_URL}/api/students`;
             const studentServiceData = {
@@ -66,7 +64,6 @@ export async function addStudent(data : StudentData) {
                     cellphone: result.output.legalRepresentativeCellphone,
                 }
             };
-            console.log(studentServiceData);
             await axios.post(url, studentServiceData);
         } else {
             throw new Error('Invalid data')
@@ -94,8 +91,10 @@ export async function getStudents() {
 export async function getStudentById(id : Student['id']) {
     try {
         const url = `${import.meta.env.VITE_API_URL}/api/students/${id}`
-        const { data } = await axios(url)
-        const result = safeParse(StudentSchema, data.data)
+        const { data } = await axios(url);
+        console.log(data);
+        const result = safeParse(StudentSchema, data.data);
+        console.log(result);
         if(result.success) {
             return result.output
         } else {
