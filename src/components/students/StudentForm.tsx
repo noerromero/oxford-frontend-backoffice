@@ -252,7 +252,7 @@ export default function StudentForm({ student }: StudentFormProps) {
             id="city"
             type="text"
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            placeholder="Apellido del estudiante"
+            placeholder="Lima"
             name="city"
             defaultValue={student?.address?.city}
           />
@@ -269,7 +269,7 @@ export default function StudentForm({ student }: StudentFormProps) {
             id="state"
             type="text"
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            placeholder="Apellido del estudiante"
+            placeholder="Lima"
             name="state"
             defaultValue={student?.address?.state}
           />
