@@ -48,6 +48,7 @@ export const StudentSchema = object({
     name: string(),
     surname: string(),
     secondSurname: string(),
+    completeName: string(),
     email: string(),
     phone: string(),
     birthdate: string(),
@@ -60,10 +61,6 @@ export const StudentSchema = object({
     legalRepresentative: LegalRepresentativeSchema,
 });
 
-export const StudentSchemaAdditionalInfo = object({
-    completeName: string(),
-});
 
 export const StudentsSchema = array(StudentSchema)
 export type Student = InferOutput<typeof StudentSchema>
-export type StudentAdditionalInfo = InferOutput<typeof StudentSchema & typeof StudentSchemaAdditionalInfo>

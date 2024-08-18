@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { getStudents } from "../../services/students/StudentService";
-import { StudentAdditionalInfo } from "../../types";
+import { Student } from "../../types";
 import StudentDetails from "../../components/students/StudentDetails";
 
 export async function loader() {
@@ -9,7 +9,7 @@ export async function loader() {
 }
 
 export default function Students() {
-  const data = useLoaderData() as StudentAdditionalInfo[];
+  const data = useLoaderData() as Student[];
 
   return (
     <>
