@@ -76,7 +76,7 @@ export async function addStudent(data : StudentData) {
 export async function getStudents() {
     try {
         const url = `${import.meta.env.VITE_API_URL}/api/students`
-        const { data } = await axios(url)
+        const { data } = await axios(url)
         const result = safeParse(StudentsSchema, data.data)
         if(result.success) {
             return result.output
@@ -110,19 +110,19 @@ export async function updateStudent(data : StudentData, id: Student['id']) {
         const result = safeParse(StudentSchema, {
             id: id,
             dni: data.dni,
-                name: data.studentName,
-                surname: data.studentSurname,
-                secondSurname: data.studentSecondSurname,
-                email: data.studentEmail,
-                phone: data.studentPhone,
-                birthdate: data.studentBirthdate,
-                cellphone: data.studentCellphone,
-                academicInstitution: data.studentAcademicInstitution,
-                workplace: data.studentWorkplace,
-                englishCertificate: data.studentEnglishCertificate,
-                comment: data.studentComment,
+                name: data.name,
+                surname: data.surname,
+                secondSurname: data.secondSurname,
+                email: data.email,
+                phone: data.phone,
+                birthdate: data.birthdate,
+                cellphone: data.cellphone,
+                academicInstitution: data.academicInstitution,
+                workplace: data.workplace,
+                englishCertificate: data.englishCertificate,
+                comment: data.comment,
                 address: {
-                    id: crypto.randomUUID().toString(),
+                    id: data.addressId,
                     street: data.street,
                     neighborhood: data.neighborhood,
                     city: data.city,
@@ -139,7 +139,7 @@ export async function updateStudent(data : StudentData, id: Student['id']) {
         })
        
         if(result.success) {
-            const url = `${import.meta.env.VITE_API_URL}/api/students/${id}`
+            const url = `${import.meta.env.VITE_API_URL}/api/students`
             await axios.put(url, result.output)
         }
     } catch (error) {
