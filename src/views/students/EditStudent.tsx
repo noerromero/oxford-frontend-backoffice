@@ -23,7 +23,7 @@ export async function action({request, params} : ActionFunctionArgs) {
     // if(error.length) {
     //     return error
     // }
-    
+
     if(params.id !== undefined) {
         await updateStudent(data, params.id)
         return redirect('/')
@@ -34,7 +34,6 @@ export default function EditStudent() {
     const student = useLoaderData() as Student
     const error = useActionData() as string
 
-    console.log(student)
     return (
         <>
             <div className='flex justify-between'>
