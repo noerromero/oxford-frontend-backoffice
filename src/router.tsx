@@ -3,14 +3,36 @@ import Layout from './layouts/Layout';
 import Students, {loader as studentLoader} from './views/students/Students';
 import NewStudent, { action as newStudentAction }  from './views/students/newStudent';
 import EditStudent, { loader as editStudentLoader, action as editStudentAction } from './views/students/EditStudent';
+import LoginLayout from './layouts/LoginLayout';
+import Login from './views/login/Login';
+import Enrollment from './views/enrollments/enrollment';
+import Professor from './views/professors/Professor';
+import Course from './views/courses/Course';
+import Reports from './views/reports/Reports';
+import Main from './views/Main';
 
 export const router = createBrowserRouter([
     {
-        path : '/',
+        path: "/",
+        element: <LoginLayout />,
+        children: [
+          {
+            index: true,
+            element: <Login />,
+          },
+        ],
+      },
+    {
+        path : '/main',
         element: <Layout />,
         children: [
             {
-                index: true,
+                path: "/main/oxford",
+                element: <Main />,
+              },
+        
+            {
+                path: "students",
                 element: <Students />,
                 loader: studentLoader
             },
@@ -24,6 +46,22 @@ export const router = createBrowserRouter([
                 element: <EditStudent />,
                 loader: editStudentLoader,
                 action: editStudentAction
+            },
+            {
+                path: "enrollments",
+                element: <Enrollment />,
+            },
+            {
+                path: "professors",
+                element: <Professor />,
+            },
+            {
+                path: "courses",
+                element: <Course />,
+            },
+            {
+                path: "reports",
+                element: <Reports />,
             },
         ]
     }
