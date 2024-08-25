@@ -13,7 +13,7 @@ export default function Students() {
 
   return (
     <>
-      <div className="flex justify-between">
+      <div className="flex justify-between px-8 py-8">
         <h2 className="text-4xl font-black text-slate-500">Estudiantes</h2>
         <Link
           to="new"
