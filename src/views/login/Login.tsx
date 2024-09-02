@@ -1,4 +1,21 @@
-import { Link } from "react-router-dom";
+import { Form, ActionFunctionArgs, redirect } from "react-router-dom";
+
+export async function action({ request }: ActionFunctionArgs) {
+  const data = Object.fromEntries(await request.formData());
+  //   let error = "";
+  //   if (Object.values(data).includes("")) {
+  //     error = "Todos los campos son obligatorios";
+  //   }
+  //   if (error.length) {
+  //     return error;
+  //   }
+  console.log(data);
+  console.log(Object.values(data));
+
+  //return redirect("/main/oxford");
+  return 0;
+}
+
 export default function Login() {
   return (
     <>
@@ -9,7 +26,10 @@ export default function Login() {
         <div className="flex flex-col justify-center items-center border-2 rounded border-solid border-blue-600 shadow-md w-96 h-96 bg-blue-200">
           <h1 className="text-center text-blue-600 text-5xl mb-5">Login</h1>
           <div>
-            <form className="flex flex-col justify-center items-center action=">
+            <Form
+              method="POST"
+              className="flex flex-col justify-center items-center action="
+            >
               <div className="flex flex-row justify-center items-center gap-x-2 px-4 py-2">
                 <div>
                   <svg
@@ -72,12 +92,12 @@ export default function Login() {
                   Forgot your password
                 </h2>
               </a>
-              <Link to="/main/oxford">
-                <button className="bg-blue-400 px-5 py-1 text-white hover:bg-blue-600 my-3 transition duration-300">
-                  Sing In
-                </button>
-              </Link>
-            </form>
+              <input
+                type="submit"
+                className=" mb-8 mt-5 w-full bg-indigo-600 p-2 text-white font-bold text-lg cursor-pointer rounded"
+                value="Login"
+              />
+            </Form>
           </div>
         </div>
       </div>

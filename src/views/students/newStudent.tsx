@@ -11,13 +11,13 @@ import StudentForm from "../../components/students/StudentForm";
 
 export async function action({ request }: ActionFunctionArgs) {
   const data = Object.fromEntries(await request.formData());
-  //   let error = "";
-  //   if (Object.values(data).includes("")) {
-  //     error = "Todos los campos son obligatorios";
-  //   }
-  //   if (error.length) {
-  //     return error;
-  //   }
+  let error = "";
+  if (Object.values(data).includes("")) {
+    error = "Todos los campos son obligatorios";
+  }
+  if (error.length) {
+    return error;
+  }
   await addStudent(data);
 
   return redirect("/");
