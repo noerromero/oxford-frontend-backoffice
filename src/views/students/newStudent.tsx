@@ -33,7 +33,7 @@ export default function NewStudent() {
           Formulario de estudiante
         </h3>
         <Link
-          to="Main1/x"
+          to="/oxford/students"
           className="rounded-md bg-indigo-600 p-3 text-sm font-bold text-white shadow-sm hover:bg-indigo-500"
         >
           Volver

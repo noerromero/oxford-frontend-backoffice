@@ -16,7 +16,7 @@ export async function action({ request }: ActionFunctionArgs) {
     console.log(error);
     return error;
   }
-  return redirect("/main/oxford");
+  return redirect("/oxford/main");
 }
 
 export default function Login() {

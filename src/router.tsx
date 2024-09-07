@@ -29,11 +29,11 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "/main",
+    path: "/oxford",
     element: <Layout />,
     children: [
       {
-        path: "/main/oxford",
+        path: "main",
         element: <Main />,
       },
 
