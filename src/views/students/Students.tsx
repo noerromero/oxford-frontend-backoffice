@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { getStudents } from "../../services/students/StudentService";
-import { Student } from "../../types";
+import { Student } from "../../types/students";
 import StudentDetails from "../../components/students/StudentDetails";
 
 export async function loader() {

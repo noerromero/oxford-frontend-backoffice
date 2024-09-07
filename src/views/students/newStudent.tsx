@@ -5,7 +5,7 @@ import {
   ActionFunctionArgs,
   redirect,
 } from "react-router-dom";
-import ErrorMessage from "../../components/shared/ErrorMessage";
+import GeneralErrorMessage from "../../components/shared/Error/GeneralErrorMessage";
 import { addStudent } from "../../services/students/StudentService";
 import StudentForm from "../../components/students/StudentForm";
 
@@ -40,7 +40,7 @@ export default function NewStudent() {
         </Link>
       </div>
 
-      {error && <ErrorMessage>{error}</ErrorMessage>}
+      {error && <GeneralErrorMessage>{error}</GeneralErrorMessage>}
 
       <Form className="mx-auto max-w-lg" method="POST">
         <StudentForm />

@@ -1,6 +1,6 @@
 import { safeParse } from 'valibot';
 import axios from 'axios';
-import { DraftStudentSchema, Student, StudentsSchema, StudentSchema } from "../../types";
+import { DraftStudentSchema, Student, StudentsSchema, StudentSchema } from "../../types/students";
 
 type StudentData = {
     [k: string]: FormDataEntryValue;
