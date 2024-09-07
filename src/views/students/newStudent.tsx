@@ -5,19 +5,19 @@ import {
   ActionFunctionArgs,
   redirect,
 } from "react-router-dom";
-import ErrorMessage from "../../components/shared/ErrorMessage";
+import GeneralErrorMessage from "../../components/shared/Error/GeneralErrorMessage";
 import { addStudent } from "../../services/students/StudentService";
 import StudentForm from "../../components/students/StudentForm";
 
 export async function action({ request }: ActionFunctionArgs) {
   const data = Object.fromEntries(await request.formData());
-  //   let error = "";
-  //   if (Object.values(data).includes("")) {
-  //     error = "Todos los campos son obligatorios";
-  //   }
-  //   if (error.length) {
-  //     return error;
-  //   }
+  let error = "";
+  if (Object.values(data).includes("")) {
+    error = "Todos los campos son obligatorios";
+  }
+  if (error.length) {
+    return error;
+  }
   await addStudent(data);
 
   return redirect("/");
@@ -33,14 +33,14 @@ export default function NewStudent() {
           Formulario de estudiante
         </h3>
         <Link
-          to="Main1/x"
+          to="/oxford/students"
           className="rounded-md bg-indigo-600 p-3 text-sm font-bold text-white shadow-sm hover:bg-indigo-500"
         >
           Volver
         </Link>
       </div>
 
-      {error && <ErrorMessage>{error}</ErrorMessage>}
+      {error && <GeneralErrorMessage>{error}</GeneralErrorMessage>}
 
       <Form className="mx-auto max-w-lg" method="POST">
         <StudentForm />

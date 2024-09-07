@@ -1,6 +1,6 @@
 import { useActionData, useLoaderData, Link, Form, LoaderFunctionArgs, ActionFunctionArgs, redirect } from "react-router-dom"
-import { Student } from "../../types"
-import ErrorMessage from "../../components/shared/ErrorMessage"
+import { Student } from "../../types/students"
+import GeneralErrorMessage from "../../components/shared/Error/GeneralErrorMessage"
 import StudentForm from "../../components/students/StudentForm"
 import { getStudentById, updateStudent } from "../../services/students/StudentService"
 
@@ -46,7 +46,7 @@ export default function EditStudent() {
                 </Link>
             </div>
 
-            {error && <ErrorMessage>{error}</ErrorMessage>}
+            {error && <GeneralErrorMessage>{error}</GeneralErrorMessage>}
 
             <Form
                 className="mx-auto max-w-lg"  

@@ -1,19 +1,45 @@
-import { Link } from "react-router-dom";
+import { Form, ActionFunctionArgs, redirect, useActionData } from "react-router-dom";
+import * as v from "valibot";
+import { LoginSchema } from "../../types/login";
+import FieldErrorMessage from "../../components/shared/Error/FieldErrorMessage";
+
+export async function action({ request }: ActionFunctionArgs) {
+  const data = Object.fromEntries(await request.formData());
+
+  const result = v.safeParse(LoginSchema, data);
+  if (!result.success) {
+    const issues = v.flatten<typeof LoginSchema>(result.issues);
+    const error = {
+      email: issues.nested?.email,
+      password: issues.nested?.password,
+    };
+    console.log(error);
+    return error;
+  }
+  return redirect("/oxford/main");
+}
+
 export default function Login() {
+  const error = useActionData() as { email: string[]; password: string[] };
+
   return (
     <>
       <div className="flex flex-col justify-center items-center h-screen">
         <h1 className="text-6xl text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-red-600">
-          Oxford web aplication
+          Oxford back office
         </h1>
         <div className="flex flex-col justify-center items-center border-2 rounded border-solid border-blue-600 shadow-md w-96 h-96 bg-blue-200">
           <h1 className="text-center text-blue-600 text-5xl mb-5">Login</h1>
+
           <div>
-            <form className="flex flex-col justify-center items-center action=">
+            <Form
+              method="POST"
+              className="flex flex-col justify-center items-center action="
+            >
               <div className="flex flex-row justify-center items-center gap-x-2 px-4 py-2">
                 <div>
                   <svg
-                    class="h-6 w-6"
+                    className="h-6 w-6"
                     data-slot="icon"
                     fill="none"
                     stroke-width="1.5"
@@ -30,19 +56,20 @@ export default function Login() {
                   </svg>
                 </div>
                 <div>
-                  <div></div>
-                  <label htmlFor=""></label>
                   <input
+                    id="email"
+                    name="email"
                     className="focus:outline-none  focus:ring-2 focus:ring-blue-300 shadow-sm transition duration-300 rounded-lg h-10 p-2"
                     type="email"
                     placeholder="Username"
                   />
+                  {error?.email && <FieldErrorMessage>{error.email[0]}</FieldErrorMessage>}
                 </div>
               </div>
               <div className="flex flex-row justify-center items-center gap-x-2 px-4 py-2">
                 <div>
                   <svg
-                    class="w-6 h-6"
+                    className="w-6 h-6"
                     data-slot="icon"
                     fill="none"
                     stroke-width="1.5"
@@ -59,12 +86,14 @@ export default function Login() {
                   </svg>
                 </div>
                 <div>
-                  <label htmlFor=""></label>
                   <input
+                    id="password"
+                    name="password"
                     className="focus:outline-none  focus:ring-2 focus:ring-blue-300 shadow-sm transition duration-300 rounded-lg h-10 p-2"
                     type="password"
                     placeholder="Password"
                   />
+                  {error?.password && <FieldErrorMessage>{error.password[0]}</FieldErrorMessage>}
                 </div>
               </div>
               <a href="">
@@ -72,12 +101,12 @@ export default function Login() {
                   Forgot your password
                 </h2>
               </a>
-              <Link to="/main/oxford">
-                <button className="bg-blue-400 px-5 py-1 text-white hover:bg-blue-600 my-3 transition duration-300">
-                  Sing In
-                </button>
-              </Link>
-            </form>
+              <input
+                type="submit"
+                className=" mb-8 mt-5 w-full bg-indigo-600 p-2 text-white font-bold text-lg cursor-pointer rounded"
+                value="Login"
+              />
+            </Form>
           </div>
         </div>
       </div>
