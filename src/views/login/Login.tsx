@@ -12,6 +12,10 @@ import { login } from "../../services/login/LoginService";
 const TYPE_REQUEST = "request";
 const TYPE_PARSE_VALIDATION = "parse_validation";
 
+type LoginData = {
+  [k: string]: FormDataEntryValue;
+}
+
 const validateLogin = async function (data: LoginData): Promise<object | boolean> {
   const requestResult = await login(data);
   if (!requestResult.success) {
