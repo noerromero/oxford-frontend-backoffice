@@ -1,26 +1,64 @@
-import { Form, ActionFunctionArgs, redirect, useActionData } from "react-router-dom";
+import {
+  Form,
+  ActionFunctionArgs,
+  redirect,
+  useActionData,
+} from "react-router-dom";
 import * as v from "valibot";
 import { LoginSchema } from "../../types/login";
 import FieldErrorMessage from "../../components/shared/Error/FieldErrorMessage";
+import { login } from "../../services/login/LoginService";
+
+const TYPE_REQUEST = "request";
+const TYPE_PARSE_VALIDATION = "parse_validation";
+
+const validateLogin = async function (data: LoginData): Promise<object | boolean> {
+  const requestResult = await login(data);
+  if (!requestResult.success) {
+    return {
+      email: [],
+      password: [],
+      generic: "Email o password son incorrectos",
+      type: TYPE_REQUEST,
+    };
+  }
+  return true;
+}
+
+const validateParseLogin = (data: object): object | boolean => {
+  const parseResult = v.safeParse(LoginSchema, data);
+  if (!parseResult.success) {
+    const issues = v.flatten<typeof LoginSchema>(parseResult.issues);
+    return {
+      email: issues.nested?.email,
+      password: issues.nested?.password,
+      generic: "",
+      type: TYPE_PARSE_VALIDATION,
+    };
+  }
+  return true;
+};
 
 export async function action({ request }: ActionFunctionArgs) {
   const data = Object.fromEntries(await request.formData());
 
-  const result = v.safeParse(LoginSchema, data);
-  if (!result.success) {
-    const issues = v.flatten<typeof LoginSchema>(result.issues);
-    const error = {
-      email: issues.nested?.email,
-      password: issues.nested?.password,
-    };
-    console.log(error);
-    return error;
+  const parseResult = validateParseLogin(data);
+
+  if (parseResult !== true) {
+    return parseResult;
   }
+
+  const requestResult = await validateLogin(data);
+
+  if (requestResult !== true) {
+    return requestResult;
+  }
+  
   return redirect("/oxford/main");
 }
 
 export default function Login() {
-  const error = useActionData() as { email: string[]; password: string[] };
+  const error = useActionData() as { email: string[]; password: string[]; generic: string; type: string };
 
   return (
     <>
@@ -30,7 +68,9 @@ export default function Login() {
         </h1>
         <div className="flex flex-col justify-center items-center border-2 rounded border-solid border-blue-600 shadow-md w-96 h-96 bg-blue-200">
           <h1 className="text-center text-blue-600 text-5xl mb-5">Login</h1>
-
+          {error?.type === TYPE_REQUEST && error?.generic && (
+            <FieldErrorMessage>{error.generic}</FieldErrorMessage>
+          )}
           <div>
             <Form
               method="POST"
@@ -63,7 +103,9 @@ export default function Login() {
                     type="email"
                     placeholder="Username"
                   />
-                  {error?.email && <FieldErrorMessage>{error.email[0]}</FieldErrorMessage>}
+                  {error?.type === TYPE_PARSE_VALIDATION && error?.email && (
+                    <FieldErrorMessage>{error.email[0]}</FieldErrorMessage>
+                  )}
                 </div>
               </div>
               <div className="flex flex-row justify-center items-center gap-x-2 px-4 py-2">
@@ -93,7 +135,9 @@ export default function Login() {
                     type="password"
                     placeholder="Password"
                   />
-                  {error?.password && <FieldErrorMessage>{error.password[0]}</FieldErrorMessage>}
+                  {error?.type === TYPE_PARSE_VALIDATION && error?.password && (
+                    <FieldErrorMessage>{error.password[0]}</FieldErrorMessage>
+                  )}
                 </div>
               </div>
               <a href="">
