@@ -26,7 +26,7 @@ export async function action({request, params} : ActionFunctionArgs) {
 
     if(params.id !== undefined) {
         await updateStudent(data, params.id)
-        return redirect('/')
+        return redirect('/oxford/students')
     }
 }
 
