@@ -10,24 +10,26 @@ import { addStudent } from "../../services/students/StudentService";
 import StudentForm from "../../components/students/StudentForm";
 import * as v from "valibot";
 import { DraftStudentSchema } from "../../types/students";
+import { StudentDataError } from "../../types/students/StudentDataError";
 
 export async function action({ request }: ActionFunctionArgs) {
   const data = Object.fromEntries(await request.formData());
-  console.log(data);
+  //console.log(data);
   const result = v.safeParse(DraftStudentSchema, data);
-  console.log(result);
+  //console.log(result);
   if (!result.success) {
     const issues = v.flatten<typeof DraftStudentSchema>(result.issues);
-    const error = {
-      dni: issues.nested?.dni,
-      birthday: issues.nested?.birthday,
-      firstName: issues.nested?.name,
-      surname: issues.nested?.surname,
-      street: issues.nested?.street,
-      city: issues.nested?.city,
-      state: issues.nested?.state,
-    };
-    return error;
+    //console.log(issues);
+    return new StudentDataError(
+      "Algo no anda bien con los datos ingresados",
+      issues.nested?.dni,
+      issues.nested?.birthday,
+      issues.nested?.name,
+      issues.nested?.surname,
+      issues.nested?.street,
+      issues.nested?.city,
+      issues.nested?.state
+    );
   }
   await addStudent(data);
 
@@ -35,7 +37,7 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export default function NewStudent() {
-  const error = useActionData() as string;
+  const error = useActionData() as StudentDataError;
 
   return (
     <>
@@ -51,10 +53,10 @@ export default function NewStudent() {
         </Link>
       </div>
 
-      {error && <GeneralErrorMessage>{error}</GeneralErrorMessage>}
+      {error?.generic && <GeneralErrorMessage>{error.generic}</GeneralErrorMessage>}
 
       <Form className="mx-auto max-w-lg" method="POST">
-        <StudentForm />
+        <StudentForm error={error}/>
 
         <input
           type="submit"

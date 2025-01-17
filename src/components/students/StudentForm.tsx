@@ -1,10 +1,13 @@
 import { Student } from "../../types/students";
+import FieldErrorMessage from "../../components/shared/Error/FieldErrorMessage";
+import { StudentDataError } from "../../types/students/StudentDataError";
 
 type StudentFormProps = {
   student?: Student;
+  error?: StudentDataError;
 };
 
-export default function StudentForm({ student }: StudentFormProps) {
+export default function StudentForm({ student, error }: StudentFormProps) {
   return (
     <>
       <div>
@@ -29,6 +32,9 @@ export default function StudentForm({ student }: StudentFormProps) {
               name="dni"
               defaultValue={student?.dni}
             />
+            {error?.dni && (
+                    <FieldErrorMessage>{error.dni[0]}</FieldErrorMessage>
+            )}
           </div>
 
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -46,6 +52,9 @@ export default function StudentForm({ student }: StudentFormProps) {
               name="birthday"
               defaultValue={student?.birthday}
             />
+            {error?.birthday && (
+                    <FieldErrorMessage>{error.birthday[0]}</FieldErrorMessage>
+            )}
           </div>
         </div>
 
@@ -64,6 +73,9 @@ export default function StudentForm({ student }: StudentFormProps) {
             name="name"
             defaultValue={student?.name}
           />
+          {error?.firstName && (
+                    <FieldErrorMessage>{error.firstName[0]}</FieldErrorMessage>
+            )}
         </div>
 
         <div className="flex flex-wrap -mx-3 mb-6">
@@ -82,6 +94,9 @@ export default function StudentForm({ student }: StudentFormProps) {
               name="surname"
               defaultValue={student?.surname}
             />
+            {error?.surname && (
+                    <FieldErrorMessage>{error.surname[0]}</FieldErrorMessage>
+            )}
           </div>
 
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -228,6 +243,9 @@ export default function StudentForm({ student }: StudentFormProps) {
           name="street"
           defaultValue={student?.address?.street}
         />
+        {error?.street && (
+                    <FieldErrorMessage>{error.street[0]}</FieldErrorMessage>
+            )}
       </div>
 
       <div className="mb-4">
@@ -263,6 +281,9 @@ export default function StudentForm({ student }: StudentFormProps) {
             name="city"
             defaultValue={student?.address?.city}
           />
+          {error?.city && (
+                    <FieldErrorMessage>{error.city[0]}</FieldErrorMessage>
+            )}
         </div>
 
         <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -280,6 +301,9 @@ export default function StudentForm({ student }: StudentFormProps) {
             name="state"
             defaultValue={student?.address?.state}
           />
+          {error?.state && (
+                    <FieldErrorMessage>{error.state[0]}</FieldErrorMessage>
+            )}
         </div>
       </div>
 
